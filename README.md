@@ -1,34 +1,37 @@
 
-
 # МИНОБРНАУКИ РОССИИ
 
-**Федеральное государственное бюджетное образовательное учреждение  
-высшего образования**
+Федеральное государственное бюджетное образовательное учреждение  
+высшего образования
 
 ## «Сибирский Федеральный Университет»
 
-Кафедра ____Программная инженерия____
+Кафедра Программная инженерия
+
 
 # ОТЧЁТ
 
-## по практической работе  №1
+## по практической работе №1
+
 ### «Построение конечных автоматов (ДКА и НКА)  
 и их программная реализация»
 
 **Вариант 7**
 
+
 **Выполнил:**  
-студент группы _КИ24-16/2Б_
-__Жутов Д.А.__
-*(ФИО)*
+студент группы КИ24-16/2Б  
+Жутов Д.А.
 
 **Проверил:**  
-__Кузнецов А.С.__
-*(ФИО преподавателя)*
+Кузнецов А.С.
 
 
 **2026**
 
+</div>
+
+---
 
 ## 1. Цель работы
 
@@ -41,6 +44,7 @@ __Кузнецов А.С.__
 **б)** Построить НКА с количеством состояний не более 4 для языка  
 `{aⁿ : n ≥ 0} ∪ {bⁿa : n ≥ 1}`.
 
+---
 
 # ЧАСТЬ А. ДКА
 
@@ -59,23 +63,23 @@ __Кузнецов А.С.__
 
 ## 3. Граф переходов ДКА
 
-![Граф ДКА](screenshots/dfa_graph.png)
+![Граф ДКА](пр1/screenshots/dfa_graph.png)
 
 ## 4. Пошаговое распознавание (JFLAP)
 
 **Цепочка `00000111` (5 нулей, 3 единицы) — Accept:**
 
-![Трасса 00000111](screenshots/dfa_run_00000111.png)
+![Трасса 00000111](пр1/screenshots/dfa_run_00000111.png)
 
 Трасса: `q0 → q1 → q2 → q3 → q4 → q0 → q5 → q10 → q0`. Финальное состояние `(0,0)` — допускающее.
 
 **Цепочка `0000` (4 нуля) — Reject:**
 
-![Трасса 0000](screenshots/dfa_run_0000.png)
+![Трасса 0000](пр1/screenshots/dfa_run_0000.png)
 
 **Массовая проверка (Multiple Run):**
 
-![Multiple Run ДКА](screenshots/dfa_multiple.png)
+![Multiple Run ДКА](пр1/screenshots/dfa_multiple.png)
 
 | Цепочка | Результат |
 |---------|-----------|
@@ -93,7 +97,7 @@ __Кузнецов А.С.__
 
 ## Программная реализация ДКА
 
-Исходник: [`src/dfa_variant7a.py`](src/dfa_variant7a.py)  
+Исходник: [`пр1/src/dfa_variant7a.py`](пр1/src/dfa_variant7a.py)  
 Автомат задан таблично: `TRANS[15][2]` + `ACCEPTING[15]`. Результат эквивалентен JFLAP.
 
 ---
@@ -125,25 +129,25 @@ __Кузнецов А.С.__
 
 ## 3. Граф переходов НКА
 
-![Граф НКА](screenshots/nfa_graph.png)
+![Граф НКА](пр1/screenshots/nfa_graph.png)
 
 ## 4. Пошаговое распознавание (JFLAP)
 
 **Цепочка `bba` — Accept:**
 
-![Трасса bba](screenshots/nfa_run_bba.png)
+![Трасса bba](пр1/screenshots/nfa_run_bba.png)
 
 Трасса: `q0 → q2 → q2 → q3`. q3 — финальное.
 
 **Цепочка `b` — Reject:**
 
-![Трасса b](screenshots/nfa_run_b.png)
+![Трасса b](пр1/screenshots/nfa_run_b.png)
 
 Трасса: `q0 → q2`. q2 не финальное — нет завершающей `a`.
 
 **Массовая проверка (Multiple Run):**
 
-![Multiple Run НКА](screenshots/nfa_multiple.png)
+![Multiple Run НКА](пр1/screenshots/nfa_multiple.png)
 
 | Цепочка | Результат |
 |---------|-----------|
@@ -163,7 +167,7 @@ __Кузнецов А.С.__
 
 ## Программная реализация НКА
 
-Исходник: [`src/nfa_variant7b.py`](src/nfa_variant7b.py)  
+Исходник: [`пр1/src/nfa_variant7b.py`](пр1/src/nfa_variant7b.py)  
 НКА задан таблично: `TRANS_NFA[4][2]` — списки состояний. Эмуляция через множество активных состояний. Результат эквивалентен JFLAP.
 
 ---
@@ -172,16 +176,17 @@ __Кузнецов А.С.__
 
 | Файл | Описание |
 |------|----------|
-| [`jflap/dfa_variant7a.jff`](jflap/dfa_variant7a.jff) | ДКА для JFLAP |
-| [`jflap/nfa_variant7b.jff`](jflap/nfa_variant7b.jff) | НКА для JFLAP |
-| [`src/dfa_variant7a.py`](src/dfa_variant7a.py) | Программная реализация ДКА |
-| [`src/nfa_variant7b.py`](src/nfa_variant7b.py) | Программная реализация НКА |
+| [`пр1/jflap/dfa_variant7a.jff`](пр1/jflap/dfa_variant7a.jff) | ДКА для JFLAP |
+| [`пр1/jflap/nfa_variant7b.jff`](пр1/jflap/nfa_variant7b.jff) | НКА для JFLAP |
+| [`пр1/src/dfa_variant7a.py`](пр1/src/dfa_variant7a.py) | Программная реализация ДКА |
+| [`пр1/src/nfa_variant7b.py`](пр1/src/nfa_variant7b.py) | Программная реализация НКА |
 
 ## Запуск
 
 **JFLAP:** `java -jar JFLAP7.1.jar` → File → Open → `.jff` → Input → Run Input / Multiple Run.
 
 **Python:**
+
 ```bash
-python src/dfa_variant7a.py
-python src/nfa_variant7b.py
+python пр1/src/dfa_variant7a.py
+python пр1/src/nfa_variant7b.py
